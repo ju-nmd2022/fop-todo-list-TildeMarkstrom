@@ -1,0 +1,25 @@
+.container{
+    display:grid;
+    grid-template-areas: 
+    ". header ."
+    ". input ."
+    ". list ."
+    ". footer .";
+    grid-template-columns: auto;
+    grid-template-rows: 1fr, 2fr, 1fr;
+    justify-items: center;
+}
+
+header{
+    grid-area:header;
+    background-color: #e5ffe5;
+    height:100%;
+    width:100%;
+    padding:20px 40px 0px 40px;
+    text-align:center;
+}
+
+#logo{
+    width:300px;
+    
+}
