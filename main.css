@@ -2,9 +2,8 @@
     display:grid;
     grid-template-areas: 
     ". header ."
-    ". input ."
-    ". list ."
-    ". footer .";
+    ". inputbox ."
+    ". list .";
     grid-template-columns: auto;
     grid-template-rows: 1fr, 2fr, 1fr;
     justify-items: center;
@@ -21,5 +20,63 @@ header{
 
 #logo{
     width:300px;
-    
+}
+
+.addTask{
+    margin-top:40px;
+    grid-area:inputbox;
+    margin-bottom:30px;
+    width:250px;
+}
+
+.tasklist{
+    grid-area:list;
+    display:flex;
+    flex-direction: column;
+    width:250px;
+}
+
+.task{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom:10px;
+}
+
+.taskText{
+    text-align: center;
+    grid-area:tasks;
+    width:180px;
+    background-color: antiquewhite;
+    height:30px;
+    margin:0px;
+    align-content: center;
+}
+
+.cross{
+    height:30px;
+    width:30px;
+    grid-area:crossControl;
+    padding:5px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+.cross:hover, .checkmark:hover{
+    background-color:#dddddd;
+    cursor:pointer;
+}
+
+.checkmark{
+    grid-area:checkControl;
+    height:30px;
+    width:30px;
+    padding:5px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+
+footer{
+    grid-area:footer;
 }
