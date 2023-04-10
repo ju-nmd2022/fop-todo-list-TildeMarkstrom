@@ -1,17 +1,21 @@
 const addTaskButton = document.getElementById("addButton");
 const inputTask = document.getElementById("taskInput");
+const taskListMemory = [];
+
+//function get storage
+//getTaskStorage();
 
 //function listen for click on "add task" button
 addTaskButton.addEventListener('click', () =>{
-    console.log("click working");
-    createNewTask();
-    clearInputText();
-});
+    if(inputTask.value.length > 0){
+        //setTaskStorage();
+        createNewTask();
+        clearInputText();
+}});
 
 //function clear input text
 function clearInputText(){
     taskInput.value="";
-    console.log("clearing");
 }
 
 //function add p and buttons
@@ -38,8 +42,6 @@ function createNewTask(){
     taskButton.appendChild(taskCross);
     taskCross.innerText = "❌";
 
-    console.log("create new task working");
-
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
@@ -56,3 +58,10 @@ function createNewTask(){
 }
 
 //function storage
+/* function setTaskStorage(){
+    localStorage.setItem('task', taskInput.value);
+}
+
+function getTaskStorage(){
+    localStorage.getItem('task');
+} */
