@@ -27,15 +27,17 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     let taskCheckmark = document.createElement('button');
     let taskCross = document.createElement('button');
 
-    // the following 6 lines were conducted from https://www.youtube.com/watch?v=vnNQaKXXJiU
+    //the following 6 lines were conducted from https://www.youtube.com/watch?v=vnNQaKXXJiU
     taskParagraph.classList.add('taskText');
     taskDiv.classList.add('task');
+    
     //the following 5 lines were adapted by the help of Samira Leonhardt
     if (id === ""){
     taskDiv.id = new Date().getTime();
     } else{
     taskDiv.id = id;
     }  
+
     taskButton.classList.add('buttons');
     taskCheckmark.classList.add('checkmark');
     taskCross.classList.add('cross');
@@ -74,8 +76,6 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     if(fromStorage === false){
     setTaskStorage(taskDivId, taskString);
     }
-
-    console.log(task);
 }
 
 //function storage
@@ -84,7 +84,7 @@ function createNewTask(id, taskName, checkmark, fromStorage){
 }
 
  function getTaskStorage(taskListMemory){
-    // the following 9 lines were adapted by the help of Samira Leonhardt
+    //the following 9 lines were adapted by the help of Samira Leonhardt
     let keys = Object.keys(localStorage);
     let i = keys.length;
     while(i--){
