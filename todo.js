@@ -22,6 +22,7 @@ function createNewTask(){
     let taskCheckmark = document.createElement('button');
     let taskCross = document.createElement('button');
 
+    // the following 6 lines were conducted from https://www.youtube.com/watch?v=vnNQaKXXJiU
     taskParagraph.classList.add('taskText');
     taskDiv.classList.add('task');
     taskButton.classList.add('buttons');
@@ -55,5 +56,3 @@ function createNewTask(){
 }
 
 //function storage
-
-// https://www.youtube.com/watch?v=-pRg_daFjfk
