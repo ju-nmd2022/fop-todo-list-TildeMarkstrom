@@ -5,13 +5,12 @@ const taskListMemory = [];
 let taskDone = false;
 
 //function get storage
-//getTaskStorage();
+getTaskStorage(taskListMemory);
 
 //function listen for click on "add task" button
 addTaskButton.addEventListener('click', () =>{
     if(inputTask.value.length > 0){
-        setTaskStorage();
-        createNewTask();
+        createNewTask("", inputTask.value, false, false);
         clearInputText();
 }});
 
@@ -21,7 +20,7 @@ function clearInputText(){
 }
 
 //function add p and buttons
-function createNewTask(){
+function createNewTask(id, taskName, checkmark, fromStorage){
     let taskParagraph = document.createElement('p');
     let taskDiv = document.createElement('div');
     let taskButton = document.createElement('div');
@@ -31,17 +30,16 @@ function createNewTask(){
     // the following 6 lines were conducted from https://www.youtube.com/watch?v=vnNQaKXXJiU
     taskParagraph.classList.add('taskText');
     taskDiv.classList.add('task');
-    taskDiv.id = new Date().getTime();
-    // 5 lines samira
-    /* if (id === ""){
+    //the following 5 lines were adapted by the help of Samira Leonhardt
+    if (id === ""){
     taskDiv.id = new Date().getTime();
     } else{
     taskDiv.id = id;
-    }  */
+    }  
     taskButton.classList.add('buttons');
     taskCheckmark.classList.add('checkmark');
     taskCross.classList.add('cross');
-    taskParagraph.innerText = inputTask.value;
+    taskParagraph.innerText = taskName;
 
     taskList.appendChild(taskDiv);
     taskDiv.appendChild(taskParagraph);
@@ -54,19 +52,12 @@ function createNewTask(){
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
-        let taskDone = true;
     });
 
     //function remove -> remove
     taskCross.addEventListener('click', () =>{
         taskList.removeChild(taskDiv);
         removeFromStorage(taskDivId);
-
-        /* taskDiv.removeChild(taskParagraph);
-        taskDiv.removeChild(taskButton);
-        taskButton.removeChild(taskCheckmark);
-        taskButton.removeChild(taskCross);
-        can be removed */
     });
 
     //function creating object
@@ -80,7 +71,9 @@ function createNewTask(){
 
     let taskString = JSON.stringify(task);
 
+    if(fromStorage === false){
     setTaskStorage(taskDivId, taskString);
+    }
 
     console.log(task);
 }
@@ -88,12 +81,20 @@ function createNewTask(){
 //function storage
  function setTaskStorage(taskDivId, taskString){
     localStorage.setItem(taskDivId, taskString);
-    //console.log(taskString);
 }
 
-/* function getTaskStorage(taskString){
-    localStorage.getItem('task');
-}  */
+ function getTaskStorage(taskListMemory){
+    // the following 9 lines were adapted by the help of Samira Leonhardt
+    let keys = Object.keys(localStorage);
+    let i = keys.length;
+    while(i--){
+        taskListMemory.push(localStorage.getItem(keys[i]));
+    }
+    taskListMemory.forEach((task)=>{
+    let jsonTask = JSON.parse(task);
+    createNewTask(jsonTask["id"], jsonTask["taskName"], jsonTask["checkmark"], true);
+    });
+}  
 
 //function remove object from storage
 function removeFromStorage(taskDivId){
