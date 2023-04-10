@@ -7,8 +7,8 @@ body{
 .container{
     display:grid;
     grid-template-areas: 
-    ". header ."
-    ". inputbox ."
+    "header header header"
+    "inputbox inputbox inputbox"
     ". list .";
     grid-template-columns: auto;
     grid-template-rows: 1fr, 2fr, 1fr;
@@ -21,6 +21,36 @@ header{
     width:100%;
     padding:20px 40px 0px 40px;
     text-align:center;
+    background-color: rgb(248, 248, 248);
+}
+
+#taskInput{
+    height:20px;
+    border-radius: 5px;
+    border-width:1px;
+    border-color:rgb(0, 255, 0);
+    border-style:solid;
+    box-shadow: 2px 2px #218f21;
+}
+
+#taskInput:focus{
+    outline:none;
+}
+
+#addButton{
+    height:25px;
+    border-radius: 5px;
+    border-width:1px;
+    border-color:rgb(0, 255, 0);
+    background-color: #ffffff;
+    border-style:solid;
+    color:#014701;
+    text-transform: capitalize;
+    box-shadow: 2px 2px #218f21;
+}
+
+#addButton:active{
+    box-shadow: 1px 1px #218f21;
 }
 
 #logo{
@@ -32,6 +62,9 @@ header{
     grid-area:inputbox;
     margin-bottom:30px;
     width:250px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .taskList{
@@ -56,6 +89,8 @@ header{
     height:30px;
     margin:0px;
     align-content: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: capitalize;
 }
 
 .cross{
@@ -71,6 +106,7 @@ header{
 .cross:hover, .checkmark:hover{
     background-color:rgb(222, 250, 206);
     cursor:pointer;
+    font-size:15px;
 }
 
 .checkmark{
