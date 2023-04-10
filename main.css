@@ -1,3 +1,9 @@
+body{
+    margin-top:0px;
+    background-color: rgb(222, 250, 206);
+
+}
+
 .container{
     display:grid;
     grid-template-areas: 
@@ -11,7 +17,6 @@
 
 header{
     grid-area:header;
-    background-color: #e5ffe5;
     height:100%;
     width:100%;
     padding:20px 40px 0px 40px;
@@ -29,7 +34,7 @@ header{
     width:250px;
 }
 
-.tasklist{
+.taskList{
     grid-area:list;
     display:flex;
     flex-direction: column;
@@ -44,10 +49,10 @@ header{
 }
 
 .taskText{
-    text-align: center;
+    text-align:center;
+    padding-top:6px;
     grid-area:tasks;
     width:180px;
-    background-color: antiquewhite;
     height:30px;
     margin:0px;
     align-content: center;
@@ -61,9 +66,10 @@ header{
     text-align: center;
     border: none;
     border-radius: 4px;
+    background-color:rgb(222, 250, 206);
 }
 .cross:hover, .checkmark:hover{
-    background-color:#dddddd;
+    background-color:rgb(222, 250, 206);
     cursor:pointer;
 }
 
@@ -75,8 +81,5 @@ header{
     text-align: center;
     border: none;
     border-radius: 4px;
-}
-
-footer{
-    grid-area:footer;
+    background-color:rgb(222, 250, 206);
 }
