@@ -19,6 +19,9 @@ function clearInputText(){
     taskInput.value="";
 }
 
+let taskParagraph = document.createElement('p');
+
+
 //function add p and buttons
 function createNewTask(id, taskName, checkmark, fromStorage){
     let taskParagraph = document.createElement('p');
@@ -26,7 +29,7 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     let taskButton = document.createElement('div');
     let taskCheckmark = document.createElement('button');
     let taskCross = document.createElement('button');
-
+    
     //the following 6 lines were conducted from https://www.youtube.com/watch?v=vnNQaKXXJiU
     taskParagraph.classList.add('taskText');
     taskDiv.classList.add('task');
@@ -51,10 +54,20 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     taskButton.appendChild(taskCross);
     taskCross.innerText = "❌";
 
+    
+    taskParagraph.innerText = taskName;
+
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
+        task.checkmark = true; 
+        updateTaskStorage(taskDivId, task);
     });
+
+if (checkmark === true){
+    taskParagraph.style.textDecoration = "line-through";
+
+}
 
     //function remove -> remove
     taskCross.addEventListener('click', () =>{
@@ -83,6 +96,12 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     localStorage.setItem(taskDivId, taskString);
 }
 
+ function updateTaskStorage(taskDivId, updatedTask) {
+    let taskString = JSON.stringify(updatedTask);
+    localStorage.setItem(taskDivId, taskString);
+}
+ 
+
  function getTaskStorage(taskListMemory){
     //the following 9 lines were adapted by the help of Samira Leonhardt
     let keys = Object.keys(localStorage);
@@ -95,6 +114,8 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     createNewTask(jsonTask["id"], jsonTask["taskName"], jsonTask["checkmark"], true);
     });
 }  
+
+
 
 //function remove object from storage
 function removeFromStorage(taskDivId){
