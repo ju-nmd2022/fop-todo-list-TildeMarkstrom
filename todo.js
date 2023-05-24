@@ -64,6 +64,7 @@ if (checkmark === true){
         taskParagraph.style.textDecoration = "line-through";
         checkmark = true; 
         task.checkmark = checkmark; 
+        taskCheckmark.style.display = "none";
         updateTaskStorage(taskDivId, task);
     });
 
