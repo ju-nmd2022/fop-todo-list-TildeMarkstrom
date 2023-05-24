@@ -44,7 +44,6 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     taskButton.classList.add('buttons');
     taskCheckmark.classList.add('checkmark');
     taskCross.classList.add('cross');
-    taskParagraph.innerText = taskName;
 
     taskList.appendChild(taskDiv);
     taskDiv.appendChild(taskParagraph);
@@ -53,21 +52,25 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     taskCheckmark.innerText = "✅";
     taskButton.appendChild(taskCross);
     taskCross.innerText = "❌";
-
-    
+if (checkmark === true){
+    taskParagraph.style.textDecoration = "line-through";
+ taskParagraph.innerText = taskName;
+} else if (checkmark === false) {
     taskParagraph.innerText = taskName;
+
+}
+    
+   
 
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
-        task.checkmark = true; 
+        checkmark = true; 
+        task.checkmark = checkmark; 
         updateTaskStorage(taskDivId, task);
     });
 
-if (checkmark === true){
-    taskParagraph.style.textDecoration = "line-through";
 
-}
 
     //function remove -> remove
     taskCross.addEventListener('click', () =>{
