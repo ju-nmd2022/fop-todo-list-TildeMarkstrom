@@ -21,7 +21,6 @@ function clearInputText(){
 
 let taskParagraph = document.createElement('p');
 
-
 //function add p and buttons
 function createNewTask(id, taskName, checkmark, fromStorage){
     let taskParagraph = document.createElement('p');
@@ -54,14 +53,12 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     taskCross.innerText = "❌";
 if (checkmark === true){
     taskParagraph.style.textDecoration = "line-through";
- taskParagraph.innerText = taskName;
+    taskParagraph.innerText = taskName;
+    taskCheckmark.style.display = "none";
 } else if (checkmark === false) {
     taskParagraph.innerText = taskName;
-
 }
-    
-   
-
+     
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
@@ -69,8 +66,6 @@ if (checkmark === true){
         task.checkmark = checkmark; 
         updateTaskStorage(taskDivId, task);
     });
-
-
 
     //function remove -> remove
     taskCross.addEventListener('click', () =>{
