@@ -59,6 +59,16 @@ if (checkmark === true){
     taskParagraph.innerText = taskName;
 }
      
+    
+
+    //function creating object
+    //the following 4 lines were adapted by the help of Samira Leonhardt
+    let taskDivId = taskDiv.id;
+    let task = {
+        taskName : inputTask.value,
+        checkmark : taskDone,
+        id : taskDivId,
+    }
     //function checkmark -> line over text
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
@@ -73,15 +83,6 @@ if (checkmark === true){
         taskList.removeChild(taskDiv);
         removeFromStorage(taskDivId);
     });
-
-    //function creating object
-    //the following 4 lines were adapted by the help of Samira Leonhardt
-    let taskDivId = taskDiv.id;
-    let task = {
-        taskName : inputTask.value,
-        checkmark : taskDone,
-        id : taskDivId,
-    }
 
     let taskString = JSON.stringify(task);
 
