@@ -65,7 +65,8 @@ if (checkmark === true){
     //the following 4 lines were adapted by the help of Samira Leonhardt
     let taskDivId = taskDiv.id;
     let task = {
-        taskName : taskName,
+        //taskName : taskName,
+        taskName : inputTask.value,
         checkmark : taskDone,
         id : taskDivId,
     }
