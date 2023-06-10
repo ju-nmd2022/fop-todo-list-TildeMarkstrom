@@ -53,10 +53,10 @@ function createNewTask(id, taskName, checkmark, fromStorage){
     taskCross.innerText = "❌";
 if (checkmark === true){
     taskParagraph.style.textDecoration = "line-through";
-    taskParagraph.innerText = taskName;
+    //taskParagraph.innerText = taskName;
     taskCheckmark.style.display = "none";
 } else if (checkmark === false) {
-    taskParagraph.innerText = taskName;
+    //taskParagraph.innerText = taskName;
 }
      
     
