@@ -66,7 +66,7 @@ if (checkmark === true){
     let taskDivId = taskDiv.id;
     let task = {
         //taskName : taskName,
-        taskName : inputTask.value,
+        taskName : taskName,
         checkmark : taskDone,
         id : taskDivId,
     }
@@ -74,8 +74,9 @@ if (checkmark === true){
     taskCheckmark.addEventListener('click', () =>{
         taskParagraph.style.textDecoration = "line-through";
         checkmark = true; 
-        task.checkmark = checkmark; 
         taskCheckmark.style.display = "none";
+        task.checkmark = checkmark; 
+        taskStr = JSON.stringify(task);
         updateTaskStorage(taskDivId, task);
     });
 
