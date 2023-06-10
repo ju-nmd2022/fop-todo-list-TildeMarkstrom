@@ -77,7 +77,7 @@ if (checkmark === true){
         taskCheckmark.style.display = "none";
         task.checkmark = checkmark; 
         taskStr = JSON.stringify(task);
-        updateTaskStorage(taskDivId, task);
+        updateTaskStorage(taskString, taskDiv);
     });
 
     //function remove -> remove
